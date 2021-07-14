@@ -143,7 +143,7 @@ class BodyHomePage extends StatefulWidget {
 
 class _BodyHomePageState extends State<BodyHomePage> {
   Future refresh() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(milliseconds: 2));
     setState(() {});
   }
 
@@ -276,9 +276,9 @@ class _BodyHomePageState extends State<BodyHomePage> {
                         uid: FirebaseAuth.instance.currentUser.uid,
                         tipoPagina: tipoPagina)
                     .deleteLista(documentSnapshot['Id Lista']);
-
-                Navigator.of(context).pop();
                 refresh();
+                Navigator.of(context).pop();
+
                 var card = documentSnapshot['Uid'];
                 showSnackBar(context, card);
               },
