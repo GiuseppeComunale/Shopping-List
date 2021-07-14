@@ -155,8 +155,15 @@ class _ViewListaState extends State<ViewLista> {
             TextButton(
               onPressed: () {
                 setState(() {
+                  this.comprato = false;
                   elemento.done = false;
                 });
+                DatabaseService(
+                        uid: FirebaseAuth.instance.currentUser.uid,
+                        tipoPagina: widget.tipoPagina,
+                        titoloLista: widget.data['Uid'],
+                        idLista: widget.data['Id Lista'])
+                    .updateElemento(elemento.prezzo, elemento, elemento.done);
                 Navigator.of(context).pop();
               },
               child: Text(
