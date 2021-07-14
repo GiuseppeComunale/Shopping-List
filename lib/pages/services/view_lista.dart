@@ -154,7 +154,9 @@ class _ViewListaState extends State<ViewLista> {
           actions: [
             TextButton(
               onPressed: () {
-                elemento.done = false;
+                setState(() {
+                  elemento.done = false;
+                });
                 Navigator.of(context).pop();
               },
               child: Text(
@@ -288,12 +290,10 @@ class _ViewListaState extends State<ViewLista> {
                               idLista: widget.data['Id Lista'])
                           .updateAnteprimaLista(this.totaleSpesa);
                       refreshList();
-                      mostraTotaleSpesa();
                     } else {
                       setState(() {
                         this.totaleSpesa = 0;
                       });
-                      mostraTotaleSpesa();
 
                       DatabaseService(
                               uid: FirebaseAuth.instance.currentUser?.uid,
@@ -302,7 +302,7 @@ class _ViewListaState extends State<ViewLista> {
                               idLista: widget.data['Id Lista'])
                           .updateAnteprimaLista(this.totaleSpesa);
                     }
-
+                  mostraTotaleSpesa();
                   Navigator.of(context).pop();
                 },
               ),
