@@ -131,8 +131,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     suffixIcon: InkWell(
                                       onTap: _togglePasswordView,
                                       child: isHiddenPassword
-                                          ? Icon(Icons.visibility_rounded)
-                                          : Icon(Icons.visibility_off_rounded),
+                                          ? Icon(Icons.visibility_off_rounded)
+                                          : Icon(Icons.visibility_rounded),
                                     ),
                                     border: OutlineInputBorder(),
                                     labelText: 'Password'),
